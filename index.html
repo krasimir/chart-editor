@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="imagetoolbar" content="no" />
+        <meta name="author" content="" />
+        <meta name="copyright" content="" />
+        <meta name="robots" content="follow,index" />
+        <meta name="title" content="" />
+        <meta name="keywords" content="" lang="en-us" />
+        <meta name="description" content="" />
+        
+        <title>FlotCharts</title>
+        <link rel="stylesheet" href="css/styles.css" />
+
+        <script type="text/javascript" src="settings.js"></script>
+        <script type="text/javascript" src="js/vendors/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/vendors/jquery.flot.js"></script>
+        <script type="text/javascript" src="js/vendors/jquery.curvedlines-0.2.3.js"></script>
+        <script type="text/javascript" src="js/vendors/underscore.js"></script>
+        <script type="text/javascript" src="js/Graph.js"></script>
+        <script type="text/javascript" src="js/Counter.js"></script>
+        <script type="text/javascript" src="js/App.js"></script>
+        
+    </head>
+<body>
+
+    <div class="page">
+        <div class="graph-holder"></div>
+        <div class="legend-holder"></div>
+    </div>
+
+    <div class="editor">
+        <table>
+            <tr>
+                <td id="x-values"></td>
+                <td id="y-values"></td>
+            <tr>
+        </table>
+        <hr />
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            App.init();
+        })
+    </script>
+
+</body>
+</html>
