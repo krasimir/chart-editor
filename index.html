@@ -11,7 +11,8 @@
         <meta name="keywords" content="" lang="en-us" />
         <meta name="description" content="" />
         
-        <title>FlotCharts</title>
+        <title>Chart editor</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/styles.css" />
 
         <script type="text/javascript" src="settings.js"></script>
@@ -19,27 +20,38 @@
         <script type="text/javascript" src="js/vendors/jquery.flot.js"></script>
         <script type="text/javascript" src="js/vendors/jquery.curvedlines-0.2.3.js"></script>
         <script type="text/javascript" src="js/vendors/underscore.js"></script>
-        <script type="text/javascript" src="js/Graph.js"></script>
         <script type="text/javascript" src="js/Counter.js"></script>
         <script type="text/javascript" src="js/App.js"></script>
         
     </head>
 <body>
 
-    <div class="page">
-        <div class="graph-holder"></div>
-        <div class="legend-holder"></div>
-    </div>
-
-    <div class="editor">
-        <table>
-            <tr>
-                <td id="x-values"></td>
-                <td id="y-values"></td>
-            <tr>
-        </table>
+    <div class="container">
+        <h1>Chart editor</h1>
         <hr />
-    </div>
+        <div class="row">
+            <div class="span6">
+                <div class="graph-holder"></div>
+                <div class="legend-holder"></div>
+                <hr />
+                <div class="settings"></div>
+            </div>
+            <div class="span6">
+                <div class="row">
+                    <div class="span3">
+                        <h4>X axis value</h4>
+                        <hr />
+                        <div class="x-values"></div>
+                    </div>
+                    <div class="span3">
+                        <h4>Y axis value</h4>
+                        <hr />
+                        <div class="y-values"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
 
     <script type="text/javascript">
         $(document).ready(function() {
