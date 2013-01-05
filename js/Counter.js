@@ -3,8 +3,12 @@ var Counter = function(label, defaultValue, onChangeCallback) {
     var self = this,
         api;
 
-    var getValue = function() {        
-        return value;
+    var getValue = function(newValue) {
+        if(newValue != null) {
+            value = newValue;
+            input.val(parseFloat(newValue));
+        }
+        return parseFloat(value);
     }
     var appendTo = function(obj) {
         obj.append(el);

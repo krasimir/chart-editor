@@ -27,12 +27,24 @@
 <body>
 
     <div class="container">
+
         <h1>Chart editor</h1>
+
         <hr />
+
         <div class="row">
             <div class="span6">
                 <div class="graph-holder"></div>
                 <div class="legend-holder"></div>
+                <hr />
+                <h2>Results</h2>
+                X: <input type="text" value="" id="resultX" /><br />
+                Y: <input type="text" value="" id="resultY" />
+                <hr />
+                <h2>Initialize</h2>
+                X: <input type="text" value="" id="initX" /><br />
+                Y: <input type="text" value="" id="initY" /><br />
+                <a href="javascript:void(0);" class="btn" id="initalize">initalize</a>
                 <hr />
                 <div class="settings"></div>
             </div>
@@ -51,6 +63,9 @@
                 </div>
             </div>
         </div>
+
+        <hr />
+
     </div>    
 
     <script type="text/javascript">

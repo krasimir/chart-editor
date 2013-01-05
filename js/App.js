@@ -17,7 +17,6 @@ var App = (function() {
         yValuesHolder = $(".y-values");
 
         // settings
-        settings.export = $('<a href="javascript:void(0);" class="btn btn-primary settings-button">Export</a>').appendTo(settingsHolder);
         settings.showPoints = $('<a href="javascript:void(0);" class="btn settings-button">Turn points on/off</a>').appendTo(settingsHolder);
         settingsHolder.append("<hr />");
         settings.numberOfPoints = new Counter("Number of points", defaultSettings.numOfPoints, [addValueCounters, drawGraph]).appendTo(settingsHolder);
@@ -34,6 +33,24 @@ var App = (function() {
 
         settings.showPoints.click(function() {
             showPointsFlag = !showPointsFlag;
+            drawGraph();
+        });
+
+        $("#initalize").click(function() {
+            var initX = $("#initX").val();
+            var initY = $("#initY").val();
+            if(initX != "") {
+                initX = initX.split(",");
+                for(var i=0; i<initX.length; i++) {
+                    settings.xValuesCounters[i].val(initX[i]);
+                }
+            }
+            if(initY != "") {
+                initY = initY.split(",");
+                for(var i=0; i<initY.length; i++) {
+                    settings.yValuesCounters[i].val(initY[i]);
+                }
+            }
             drawGraph();
         });
 
@@ -55,8 +72,17 @@ var App = (function() {
     }
     var drawGraph = function() {
         var data = [];
+        var result = {x: "", y: ""};
         for(var i=0; i<settings.numberOfPoints.val(); i++) {
             data.push([settings.xValuesCounters[i].val(), settings.yValuesCounters[i].val()]);
+            result.x += settings.xValuesCounters[i].val().toFixed(2);
+            result.y += settings.yValuesCounters[i].val().toFixed(2);
+            if(i < settings.numberOfPoints.val() - 1) {
+                result.x += ",";
+                result.y += ",";
+            }
+            $("#resultX").val(result.x);
+            $("#resultY").val(result.y);
         }        
         container.empty();
         $.plot(container, [data], {
