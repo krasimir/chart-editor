@@ -39,15 +39,13 @@ var App = (function() {
         $("#initalize").click(function() {
             var initX = $("#initX").val();
             var initY = $("#initY").val();
-            if(initX != "") {
+            if(initX != "" && initY != "") {
                 initX = initX.split(",");
+                initY = initY.split(",");
+                settings.numberOfPoints.val(initX.length);
+                addValueCounters();
                 for(var i=0; i<initX.length; i++) {
                     settings.xValuesCounters[i].val(initX[i]);
-                }
-            }
-            if(initY != "") {
-                initY = initY.split(",");
-                for(var i=0; i<initY.length; i++) {
                     settings.yValuesCounters[i].val(initY[i]);
                 }
             }
