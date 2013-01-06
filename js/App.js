@@ -71,12 +71,16 @@ var App = (function() {
         }
         xValuesHolder.append("<hr />");
         yValuesHolder.append("<hr />");
-        settings.xValuesAll = new Counter("All:", 1, [manageAll, drawGraph], true).appendTo(xValuesHolder);
-        settings.yValuesAll = new Counter("All:", 1, [manageAll, drawGraph], true).appendTo(yValuesHolder);
+        settings.xValuesAll = new Counter("All:", 1, [manageAllX, drawGraph], true).appendTo(xValuesHolder);
+        settings.yValuesAll = new Counter("All:", 1, [manageAllY, drawGraph], true).appendTo(yValuesHolder);
     }
-    var manageAll = function(direction) {
+    var manageAllX = function(direction) {
         for(var i=0; i<settings.numberOfPoints.val(); i++) {                    
             settings.xValuesCounters[i].val(settings.xValuesCounters[i].val() + (settings.xValuesAll.val()*direction));
+        }
+    }
+    var manageAllY = function(direction) {
+        for(var i=0; i<settings.numberOfPoints.val(); i++) {                    
             settings.yValuesCounters[i].val(settings.yValuesCounters[i].val() + (settings.yValuesAll.val()*direction));
         }
     }
