@@ -1,4 +1,4 @@
-var Counter = function(label, defaultValue, onChangeCallback) {
+var Counter = function(label, defaultValue, onChangeCallback, staticValue) {
 
     var self = this,
         api;
@@ -14,24 +14,28 @@ var Counter = function(label, defaultValue, onChangeCallback) {
         obj.append(el);
         return api;
     }
-    var onUp = function() {    
-        value += 1;
+    var onUp = function() {
+        if(staticValue === null) {    
+            value += 1;
+        }
         input.val(value);
-        callCallback();
+        callCallback(1);
     }
     var onDown = function() {
-        value -= 1;
+        if(staticValue === null) {
+            value -= 1;
+        }
         input.val(value);
-        callCallback();
+        callCallback(-1);
     }
     var update = function() {
         value = parseInt(input.val());
-        callCallback();
+        callCallback(0);
     }
-    var callCallback = function() {
+    var callCallback = function(direction) {
         if(_.isArray(onChangeCallback)) {
             _.each(onChangeCallback, function(c) {
-                c();
+                c(direction);
             })
         } else {
             onChangeCallback();

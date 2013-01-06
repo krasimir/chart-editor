@@ -69,6 +69,16 @@ var App = (function() {
             settings.xValuesCounters.push(new Counter("p" + ((i+1) < 10 ? "0" + (i+1) : (i+1)), xStep * i, drawGraph).appendTo(xValuesHolder));
             settings.yValuesCounters.push(new Counter("p" + ((i+1) < 10 ? "0" + (i+1) : (i+1)), yStep * i, drawGraph).appendTo(yValuesHolder));
         }
+        xValuesHolder.append("<hr />");
+        yValuesHolder.append("<hr />");
+        settings.xValuesAll = new Counter("All:", 1, [manageAll, drawGraph], true).appendTo(xValuesHolder);
+        settings.yValuesAll = new Counter("All:", 1, [manageAll, drawGraph], true).appendTo(yValuesHolder);
+    }
+    var manageAll = function(direction) {
+        for(var i=0; i<settings.numberOfPoints.val(); i++) {                    
+            settings.xValuesCounters[i].val(settings.xValuesCounters[i].val() + (settings.xValuesAll.val()*direction));
+            settings.yValuesCounters[i].val(settings.yValuesCounters[i].val() + (settings.yValuesAll.val()*direction));
+        }
     }
     var drawGraph = function() {
         var data = [];
