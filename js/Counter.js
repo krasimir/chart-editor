@@ -15,14 +15,14 @@ var Counter = function(label, defaultValue, onChangeCallback, staticValue) {
         return api;
     }
     var onUp = function() {
-        if(staticValue === null) {    
+        if(!staticValue) {
             value += 1;
         }
         input.val(value);
         callCallback(1);
     }
     var onDown = function() {
-        if(staticValue === null) {
+        if(!staticValue) {
             value -= 1;
         }
         input.val(value);
