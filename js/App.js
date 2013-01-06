@@ -45,8 +45,8 @@ var App = (function() {
                 settings.numberOfPoints.val(initX.length);
                 addValueCounters();
                 for(var i=0; i<initX.length; i++) {
-                    settings.xValuesCounters[i].val(initX[i]);
-                    settings.yValuesCounters[i].val(initY[i]);
+                    settings.xValuesCounters[i].val(parseFloat(initX[i]));
+                    settings.yValuesCounters[i].val(parseFloat(initY[i]));
                 }
             }
             drawGraph();
